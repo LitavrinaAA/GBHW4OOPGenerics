@@ -6,6 +6,11 @@ public class PackerPro extends  Packer{
     }
 
     @Override
+    public String workStatus() {
+        return super.workStatus();
+    }
+
+    @Override
     public <T extends Fruit> FruitBox<T> doWork(T fruit, int quantity) {
         return super.doWork(fruit, quantity);
     }
@@ -17,7 +22,7 @@ public class PackerPro extends  Packer{
                 .append(box.typeOfFruitBox())
                 .append(": вес ")
                 .append(box.getWeight())
-                .append("кг , количество")
+                .append(", количество")
                 .append(box.getQuantity())
                 ;
 

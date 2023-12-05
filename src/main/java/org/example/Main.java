@@ -18,18 +18,15 @@ public class Main {
         packer - только пакует
         packerPro пакует +  может рассказать что упаковано в коробке*/
         Packer packer = new Packer("Маша");
+        FruitBox<Banana> boxBanana = packer.doWork(new Banana(), 4);
+        System.out.printf("В коробка с бананами весит %.1f кг.", boxBanana.getWeight());
+        System.out.println();
+        /* Упаковщик + */
         PackerPro packerPro = new PackerPro("Оля");
-
         FruitBox<Plum> boxPlum = packerPro.doWork(new Plum(),10);
         packerPro.sayWeightAndQuantity(boxPlum );
 
 
-
-        FruitBox<Banana> boxBanana = packer.doWork(new Banana(), 4);
-        System.out.printf("В коробка с бананами весит %.1f кг.", boxBanana.getWeight());
-        System.out.println();
-
-        Loader loader = new Loader("Вася");
 
         FruitBox<Orange> boxOrange = packer.doWork(new Orange(), 4);
 
@@ -39,16 +36,15 @@ public class Main {
         System.out.println("Одинаково ли весят коробки с апельсинами и с бананами?");
         System.out.println((Math.abs(boxOrange.getWeight() - boxBanana.getWeight()) <= 0.000001));
 
-        FruitBox<Banana> boxBanana2 = new FruitBox<>();
-        boxBanana2 = boxBanana.pour();
-        System.out.println("Пересыпала бананы в другую коробку:");
-        System.out.printf("Коробка boxBanana вес %.1f , количество %d"
-                ,boxBanana.getWeight(),boxBanana.getQuantity() );
-        System.out.println();
 
-        System.out.printf("Коробка boxBanana2 вес %.1f , количество %d"
-                ,boxBanana2.getWeight(),boxBanana2.getQuantity() );
-        System.out.println();
+        /*Принцип разделения ответственности:
+        Упаковщик - пакует
+        Грузчик - пересыпает */
+
+        Loader loader = new Loader("Вася");
+
+        loader.doWork(packer.doWork(new Banana(),5));
+
 
 
 

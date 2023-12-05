@@ -25,7 +25,7 @@ public class Packer implements Employee {
 
 
     @Override
-    public String doWork() {
-        return "Упаковываю!";
+    public String workStatus() {
+        return "Я иду паковать!";
     }
 }
