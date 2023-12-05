@@ -5,7 +5,7 @@ import java.util.Scanner;
 /*Принцип Единой ответственности: упаковщик упаковывает
 
 * */
-public class Packer implements Employee {
+public class Packer implements Employee, Pack {
     private String name;
 
 
@@ -13,7 +13,7 @@ public class Packer implements Employee {
         this.name = name;
     }
 
-    public<T extends Fruit> FruitBox<T> doWork(T fruit, int quantity) {
+    public<T extends Fruit> FruitBox<T> doPack(T fruit, int quantity) {
         FruitBox<T> boxFruit= new FruitBox<>();
         int quantityInBox = 0;
         while ( quantityInBox <= quantity) {

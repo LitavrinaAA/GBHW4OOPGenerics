@@ -1,21 +1,21 @@
 package org.example;
 
-public class PackerPro extends  Packer{
+public class PackerPro extends  Packer implements Pack, Talking {
     public PackerPro(String name) {
         super(name);
     }
 
     @Override
     public String workStatus() {
-        return super.workStatus();
+        return "Я иду паковать и потом отчет сделаю!";
     }
 
     @Override
-    public <T extends Fruit> FruitBox<T> doWork(T fruit, int quantity) {
-        return super.doWork(fruit, quantity);
+    public <T extends Fruit> FruitBox<T> doPack(T fruit, int quantity) {
+        return super.doPack(fruit, quantity);
     }
 
-    public <T extends Fruit> void sayWeightAndQuantity(FruitBox<T> box) {
+    public <T extends Fruit> void say(FruitBox<T> box) {
         StringBuilder str = new StringBuilder();
         str
                 .append("Коробка c ")

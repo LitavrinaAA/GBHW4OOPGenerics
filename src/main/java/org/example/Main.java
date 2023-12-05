@@ -18,17 +18,17 @@ public class Main {
         packer - только пакует
         packerPro пакует +  может рассказать что упаковано в коробке*/
         Packer packer = new Packer("Маша");
-        FruitBox<Banana> boxBanana = packer.doWork(new Banana(), 4);
+        FruitBox<Banana> boxBanana = packer.doPack(new Banana(), 4);
         System.out.printf("В коробка с бананами весит %.1f кг.", boxBanana.getWeight());
         System.out.println();
         /* Упаковщик + */
         PackerPro packerPro = new PackerPro("Оля");
-        FruitBox<Plum> boxPlum = packerPro.doWork(new Plum(),10);
-        packerPro.sayWeightAndQuantity(boxPlum );
+        FruitBox<Plum> boxPlum = packerPro.doPack(new Plum(),10);
+        packerPro.say(boxPlum );
 
 
 
-        FruitBox<Orange> boxOrange = packer.doWork(new Orange(), 4);
+        FruitBox<Orange> boxOrange = packer.doPack(new Orange(), 4);
 
         System.out.printf("В коробка с апельсинами весит %.1f кг.", boxOrange.getWeight());
         System.out.println();
@@ -43,7 +43,7 @@ public class Main {
 
         Loader loader = new Loader("Вася");
 
-        loader.doWork(packer.doWork(new Banana(),5));
+        loader.overfilling(packer.doPack(new Banana(),5));
 
 
 

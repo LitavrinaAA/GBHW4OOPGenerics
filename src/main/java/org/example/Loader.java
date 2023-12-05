@@ -1,6 +1,6 @@
 package org.example;
 
-public class Loader implements Employee{
+public class Loader extends Employee implements Load{
     String name;
 
     public Loader(String вася) {
@@ -11,7 +11,7 @@ public class Loader implements Employee{
     public String workStatus() {
         return "Я пошел пересыпать!";
     }
-    public <T extends Fruit> FruitBox<T> doWork(FruitBox<T> boxOld) {
+    public <T extends Fruit> FruitBox<T> overfilling (FruitBox<T> boxOld) {
         FruitBox<T> boxNew = new FruitBox<>();
         boxNew = boxOld.pour();
         System.out.println("Пересыпал " + boxOld.typeOfFruitBox() + "  в другую коробку:");
