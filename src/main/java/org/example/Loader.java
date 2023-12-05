@@ -1,6 +1,6 @@
 package org.example;
 
-public class Loader extends Employee implements Load{
+public class Loader  implements Employee, Load {
     String name;
 
     public Loader(String вася) {
