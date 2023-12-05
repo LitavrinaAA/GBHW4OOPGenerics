@@ -6,13 +6,23 @@ package org.example;
 public class FruitBox<T extends Fruit> {
     private Double weight;
     private Integer quantity;
+    private String typeOfFruit;
+
+
+
+
+
 
     public FruitBox() {
         this.weight = 0.0;
         this.quantity = 0;
     }
-
+public String typeOfFruitBox(){
+       return typeOfFruit;
+}
     void addFruit(T fruit) {
+        if (typeOfFruit == null)
+            typeOfFruit = fruit.getClass().getSimpleName();
         this.weight += fruit.getWeight();
         quantity ++;
 
@@ -37,4 +47,6 @@ public class FruitBox<T extends Fruit> {
     public Integer getQuantity() {
         return quantity;
     }
+
+
 }

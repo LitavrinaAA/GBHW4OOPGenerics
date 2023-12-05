@@ -11,4 +11,9 @@ public class Apple implements Fruit {
     public double getWeight() {
         return weight;
     }
+
+    @Override
+    public String toString() {
+        return "Яблоко";
+    }
 }

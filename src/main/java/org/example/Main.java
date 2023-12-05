@@ -14,28 +14,25 @@ public class Main {
         box1.addFruit(banana);
         System.out.printf("В коробка с разными фруктами весит %.1f кг.", box1.getWeight());
         System.out.println();
+        /*Принцип открытости-закрытости:
+        packer - только пакует
+        packerPro пакует +  может рассказать что упаковано в коробке*/
+        Packer packer = new Packer("Маша");
+        PackerPro packerPro = new PackerPro("Оля");
 
-        FruitBox<Apple> boxApple = new FruitBox<>();
-        boxApple.addFruit(new Apple(0.1));
-        boxApple.addFruit(new Apple(0.2));
-        boxApple.addFruit(new Apple(0.3));
-        boxApple.addFruit(new Apple(0.4));
-        System.out.printf("В коробка с яблоками весит %.1f кг.", boxApple.getWeight());
-        System.out.println();
+        FruitBox<Plum> boxPlum = packerPro.doWork(new Plum(),10);
+        packerPro.sayWeightAndQuantity(boxPlum );
 
-        FruitBox<Banana> boxBanana = new FruitBox<>();
-        boxBanana.addFruit(new Banana());
-        boxBanana.addFruit(new Banana());
-        boxBanana.addFruit(new Banana());
-        boxBanana.addFruit(new Banana());
+
+
+        FruitBox<Banana> boxBanana = packer.doWork(new Banana(), 4);
         System.out.printf("В коробка с бананами весит %.1f кг.", boxBanana.getWeight());
         System.out.println();
 
-        FruitBox<Orange> boxOrange = new FruitBox<>();
-        boxOrange.addFruit(new Orange());
-        boxOrange.addFruit(new Orange());
-        boxOrange.addFruit(new Orange());
-        boxOrange.addFruit(new Orange());
+        Loader loader = new Loader("Вася");
+
+        FruitBox<Orange> boxOrange = packer.doWork(new Orange(), 4);
+
         System.out.printf("В коробка с апельсинами весит %.1f кг.", boxOrange.getWeight());
         System.out.println();
 
